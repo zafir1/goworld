@@ -1,8 +1,13 @@
 {% extends "blog/base.html" %}
 {% block content %}
-<div>
-    <h3>Profile</h3>
-
-    <div>{{ user.username }}</div>
+<div class="media border p-3">
+    <img src="{{ user.profile.image.url }}" alt="{{ user.username }}'s profile Pic" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+    <div class="media-body">
+        <div>
+            <span class="h3">{{ user.username }}</span>
+            <br>
+            <span class="small text-muted">{{ user.email }}</span>
+        </div>
+    </div>
 </div>
 {% endblock content %}
