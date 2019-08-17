@@ -22,21 +22,18 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a class="navbar-brand" href="{% url 'blog-home' %}">Go-World</a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'blog-about' %}">About <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
+                <li class=""><a class="nav-link btn" href="{% url 'blog-about' %}">About Us</a></li>
+                {% if user.is_authenticated %}
+                    <li class=""><a class="nav-link btn" href="{% url 'blog-about' %}">My Posts</a></li>
+                    <li class=""><a class="nav-link btn" href="{% url 'post-create' %}">New Post</a></li>
+                {% endif %}
             </ul>
             <div class="form-inline my-2 my-lg-0">
                 <div class="row">
                     {% if user.is_authenticated %}
                         <div class="col-md-6"><a href="{% url 'profile' %}" class="btn btn-success">Profile</a></div>
                         <div class="col-md-6"><a href="{% url 'logout' %}" class="btn btn-danger">Logout</a></div>
+
                     {% else %}
                         <div class="col-md-6"><a href="{% url 'login' %}" class="btn btn-success">Login</a></div>
                         <div class="col-md-6"><a href="{% url 'register' %}" class="btn btn-primary">SignUp</a></div>
