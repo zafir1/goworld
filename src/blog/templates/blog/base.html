@@ -26,6 +26,7 @@
                 {% if user.is_authenticated %}
                     <li class=""><a class="nav-link btn" href="{% url 'user-posts' user.username %}">My Posts</a></li>
                     <li class=""><a class="nav-link btn" href="{% url 'post-create' %}">New Post</a></li>
+                    <li class=""><a class="nav-link btn" href="{% url 'my-interest-list' %}">Interest</a></li>
                 {% endif %}
             </ul>
             <div class="form-inline my-2 my-lg-0">
@@ -61,10 +62,13 @@
             {% block content %}{% endblock %}
         </div>
         <div class="col-md-3">
-            <h3>Blog - Options</h3>
-            {% if user.is_authenticated %}
-                <div class="mb-2 mt-2 p-2"><a href="{% url 'post-create' %}">Create New Post</a></div>
-            {% endif %}
+
+            <!--<h3>Blog - Options</h3>-->
+            <!--{% if user.is_authenticated %}-->
+                <!--<div class="mb-2 mt-2 p-2"><a href="{% url 'post-create' %}">Create New Post</a></div>-->
+            <!--{% endif %}-->
+            <!--<hr>-->
+            {% block sidebar %}{% endblock %}
         </div>
     </div>
 </div>

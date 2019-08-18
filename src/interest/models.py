@@ -11,3 +11,6 @@ class Interest(models.Model):
 
     def __str__(self):
         return self.interest_name
+
+    def get_absolute_url(self):
+        return reverse('my-interest-list')

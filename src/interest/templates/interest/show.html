@@ -1,0 +1,23 @@
+{% extends "interest/base.html" %}
+
+{% block sidebar %}
+    <h3>Interest NavBar</h3>
+    <div>
+        <div class="mb-3 p-2">
+            <a href="{% url 'create-interest-list' %}">Add New Interest</a>
+        </div>
+    </div>
+{% endblock sidebar %}
+
+
+{% block content %}
+    <h3 class="mb-4">All Available Fields</h3>
+    <hr>
+    <div class="row">
+        {% for interest in interests %}
+            <div class="col-md-6 p-3">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"><b>{{ interest.interest_name }}</b>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
