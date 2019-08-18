@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {% if title %}
-    <title>Django Blog - {{ title }}</title>
+        <title>Django Blog - {{ title }}</title>
     {% else %}
-    <title>Django Blog</title>
+        <title>Django Blog</title>
     {% endif %}
 </head>
 <body>
@@ -24,14 +24,14 @@
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class=""><a class="nav-link btn" href="{% url 'blog-about' %}">About Us</a></li>
                 {% if user.is_authenticated %}
-                    <li class=""><a class="nav-link btn" href="{% url 'blog-about' %}">My Posts</a></li>
+                    <li class=""><a class="nav-link btn" href="{% url 'user-posts' user.username %}">My Posts</a></li>
                     <li class=""><a class="nav-link btn" href="{% url 'post-create' %}">New Post</a></li>
                 {% endif %}
             </ul>
             <div class="form-inline my-2 my-lg-0">
                 <div class="row">
                     {% if user.is_authenticated %}
-                        <div class="col-md-6"><a href="{% url 'profile' %}" class="btn btn-success">Profile</a></div>
+                        <div class="col-md-6"><a href="{% url 'profile' %}" class="btn btn-success">{{user.username}}</a></div>
                         <div class="col-md-6"><a href="{% url 'logout' %}" class="btn btn-danger">Logout</a></div>
 
                     {% else %}
@@ -68,7 +68,6 @@
         </div>
     </div>
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
